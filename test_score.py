@@ -1,5 +1,8 @@
 import csv, sqlite3
 
+import inline
+import matplotlib
+
 conn = sqlite3.connect('SQLiteMagic.db')
 
 cur = conn.cursor()
@@ -78,6 +81,15 @@ cur.execute(test_score_distribution)
 output_py = cur.fetchall()
 for i in output_py:
     print(i)
+
+import pandas as pd
+
+# dataframe = test_score_distribution.DataFrame()
+# %matplotlib inline
+# import seaborn
+#
+# plot = seaborn.barplot(x='Test_Score',y='Frequency', data=dataframe)
+
 
 
 
