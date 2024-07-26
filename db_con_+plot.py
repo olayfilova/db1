@@ -1,6 +1,66 @@
+import ibm_db_sa
+import sqlalchemy
+
+from sqlalchemy import create_engine
+
+
+conn_str = 'ibm_db_sa://vxl26676:4x7OiJcPyhSP1NVS@824dfd4d-99de-440d-9991-629c01b3832d.bs2io90l08kqb1od8lcg.databases.appdomain.cloud:30119/BLUDB'
+
+
+engine = create_engine(conn_str)
+
+
+with engine.connect() as connection:
+    result = connection.execute('SELECT * FROM your_table LIMIT 10')
+    for row in result:
+        print(row)
+
+###imb_db
+import ibm_db
+
+
+dsn_hostname = "824dfd4d-99de-440d-9991-629c01b3832d.bs2io90l08kqb1od8lcg.databases.appdomain.cloud"
+dsn_uid = "vxl26676"
+dsn_pwd = "4x7OiJcPyhSP1NVS"
+
+dsn_driver = "{IBM DB2 ODBC DRIVER}"
+dsn_database = "BLUDB"
+dsn_port = "30119"
+dsn_protocol = "TCPIP"
+dsn_security = "SSL"
+
+dsn = (
+    "DRIVER={0};"
+    "DATABASE={1};"
+    "HOSTNAME={2};"
+    "PORT={3};"
+    "PROTOCOL={4};"
+    "UID={5};"
+    "PWD={6};"
+    "SECURITY={7};").format(dsn_driver, dsn_database, dsn_hostname, dsn_port, dsn_protocol, dsn_uid, dsn_pwd,dsn_security)
+
+#print the connection string to check correct values are specified
+print(dsn)
+
+try:
+    conn = ibm_db.connect(dsn, "", "")
+    print ("Connected to database: ", dsn_database, "as user: ", dsn_uid, "on host: ", dsn_hostname)
+
+except:
+    print ("Unable to connect: ", ibm_db.conn_errormsg() )
+
+
+
 # import sqlite3
 # import pandas as pd
-#
+
+###SYSCAT.TABLES IN DB2
+###sqlite_master,SHOW TABLES
+###ATRIBUTE SQLITE:
+###PRAGMA table_info([table_name])
+###ATRIBUTE MYSQL
+###DESCRIBE_TABLE
+
 # import matplotlib.pyplot as plt
 # #/ % matplotlib inline
 # # import seaborn as sns
@@ -58,7 +118,7 @@
 #
 # con = sqlite3.connect("socioeconomic.db")
 # cur = con.cursor()
-# # /!pip instal -q pandas==1.1.5
+# # /!pip install -q pandas==1.1.5
 # # /%sql sqlite3:///socioeconomic.db
 #
 # import pandas as pd
