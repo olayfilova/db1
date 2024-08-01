@@ -2,54 +2,50 @@ import ibm_db_sa
 import sqlalchemy
 
 from sqlalchemy import create_engine
+#
+# 
+# conn_str = 'ibm_db_sa://_:_@_:_/BLUDB'
+# engine = create_engine(conn_str)
+# with engine.connect() as connection:
+#     result = connection.execute('SELECT * FROM your_table LIMIT 10')
+#     for row in result:
+#         print(row)
 
-
-conn_str = 'ibm_db_sa://vxl26676:4x7OiJcPyhSP1NVS@824dfd4d-99de-440d-9991-629c01b3832d.bs2io90l08kqb1od8lcg.databases.appdomain.cloud:30119/BLUDB'
-
-
-engine = create_engine(conn_str)
-
-
-with engine.connect() as connection:
-    result = connection.execute('SELECT * FROM your_table LIMIT 10')
-    for row in result:
-        print(row)
-
-###imb_db
-import ibm_db
-
-
-dsn_hostname = "824dfd4d-99de-440d-9991-629c01b3832d.bs2io90l08kqb1od8lcg.databases.appdomain.cloud"
-dsn_uid = "vxl26676"
-dsn_pwd = "4x7OiJcPyhSP1NVS"
-
-dsn_driver = "{IBM DB2 ODBC DRIVER}"
-dsn_database = "BLUDB"
-dsn_port = "30119"
-dsn_protocol = "TCPIP"
-dsn_security = "SSL"
-
-dsn = (
-    "DRIVER={0};"
-    "DATABASE={1};"
-    "HOSTNAME={2};"
-    "PORT={3};"
-    "PROTOCOL={4};"
-    "UID={5};"
-    "PWD={6};"
-    "SECURITY={7};").format(dsn_driver, dsn_database, dsn_hostname, dsn_port, dsn_protocol, dsn_uid, dsn_pwd,dsn_security)
-
-#print the connection string to check correct values are specified
-print(dsn)
-
-try:
-    conn = ibm_db.connect(dsn, "", "")
-    print ("Connected to database: ", dsn_database, "as user: ", dsn_uid, "on host: ", dsn_hostname)
-
-except:
-    print ("Unable to connect: ", ibm_db.conn_errormsg() )
-
-
+# ###imb_db
+# # import ibm_db
+# #
+# #
+# # dsn_hostname = "_"
+# # dsn_uid = "_"
+# # dsn_pwd = "_"
+# #
+# # dsn_driver = "{IBM DB2 ODBC DRIVER}"
+# # dsn_database = "BLUDB"
+# # dsn_port = "_"
+# # dsn_protocol = "TCPIP"
+# # dsn_security = "SSL"
+# #
+# # dsn = (
+# #     "DRIVER={0};"
+# #     "DATABASE={1};"
+# #     "HOSTNAME={2};"
+# #     "PORT={3};"
+# #     "PROTOCOL={4};"
+# #     "UID={5};"
+# #     "PWD={6};"
+# #     "SECURITY={7};").format(dsn_driver, dsn_database, dsn_hostname, dsn_port, dsn_protocol, dsn_uid, dsn_pwd,dsn_security)
+# #
+# # #print the connection string to check correct values are specified
+# # print(dsn)
+# #
+# # try:
+# #     conn = ibm_db.connect(dsn, "", "")
+# #     print ("Connected to database: ", dsn_database, "as user: ", dsn_uid, "on host: ", dsn_hostname)
+# #
+# # except:
+# #     print ("Unable to connect: ", ibm_db.conn_errormsg() )
+# #
+#
 
 # import sqlite3
 # import pandas as pd
