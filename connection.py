@@ -7,8 +7,6 @@ from sqlalchemy import create_engine
 import pandas as pd
 import sqlite3
 
-
-
 # # Database connection string
 # conn_str = "ibm_db_sa://_:_:_/bludb"
 #
@@ -52,7 +50,6 @@ import sqlite3
 # print(conn_str)
 
 
-
 # dsn_hostname = "_"
 # dsn_uid = "_"
 # dsn_pwd = "_"
@@ -84,7 +81,6 @@ import sqlite3
 #
 # print(dsn)
 # ibm_db.close(conn)
-
 
 
 #
@@ -142,7 +138,6 @@ import sqlite3
 # options = { ibm_db.SQL_ATTR_INFO_PROGRAMNAME : 'TestProgram', ibm_db.SQL_ATTR_CURRENT_SCHEMA : 'MYSCHEMA' }
 # conn=ibm_db.connect("DATABASE=database;HOSTNAME=hostname;PORT=port;PROTOCOL=TCPIP;UID=username;PWD=password",'','', options)
 #
-
 
 
 #
@@ -299,27 +294,80 @@ import sqlite3
 # ibm_db.close(conn)
 
 
+# conn = sqlite3.connect('INSTRUCTOR.db')
+# cur = conn.cursor()
+# cur.execute("DROP TABLE IF EXISTS INSTRUCTOR")
+#
+# table = "create table  IF NOT EXISTS INSTRUCTOR(ID INTEGER(2) PRIMARY KEY NOT NULL, FNAME VARCHAR(20), LNAME VARCHAR(20), CITY VARHCAR(20), CCODE CHAR(2))"
+# cur.execute(table)
+#
+#
+# cur.execute("insert into INSTRUCTOR values(1,'Rav','Ahul', 'Toronto', 'Ca')")
+# output = cur.fetchall()
+# print("want to print table?")
+#
+# cur.execute("insert into INSTRUCTOR values(2, 'Raul', 'Chang', 'Markham', 'Ca'), (3, 'Hima', 'Vasudevan', 'Chicago', 'US');")
+# statement = ('select * from INSTRUCTOR')
+# cur.execute(statement)
+#
+# output = cur.fetchall()
+# for i in output:
+#     print(i)
 
-conn = sqlite3.connect('INSTRUCTOR.db')
-cur = conn.cursor()
-cur.execute("DROP TABLE IF EXISTS INSTRUCTOR")
 
-table = "create table  IF NOT EXISTS INSTRUCTOR(ID INTEGER(2) PRIMARY KEY NOT NULL, FNAME VARCHAR(20), LNAME VARCHAR(20), CITY VARHCAR(20), CCODE CHAR(2))"
-cur.execute(table)
+# Дано список: [10, 9, 1, 2, 8, 7, 3, 4, 6, 5]
+my_list = [10, 9, 1, 2, 8, 7, 3, 4, 6, 5]
+num = -1
+num2 = [-2, -5, -7]
 
 
-cur.execute("insert into INSTRUCTOR values(1,'Rav','Ahul', 'Toronto', 'Ca')")
-output = cur.fetchall()
-print("want to print table?")
+def append_obj_num(obj: list, number: int):
+    obj.append(number)
+    return obj
 
-cur.execute("insert into INSTRUCTOR values(2, 'Raul', 'Chang', 'Markham', 'Ca'), (3, 'Hima', 'Vasudevan', 'Chicago', 'US');")
-statement = ('select * from INSTRUCTOR')
-cur.execute(statement)
 
-output = cur.fetchall()
-for i in output:
-    print(i)
+def extend_list(obj: list, input: list):
+    obj.extend(input)
+    return obj
 
+
+print(append_obj_num(my_list, num))
+print(extend_list(my_list, num2))
+
+# my_list.extend(num2)
+# print(my_list)
+# print(extend_list(my_list, num2))
+my_list.insert(2, 9)
+print(my_list)
+var, var1, var2 = my_list.count(1), my_list.count(9), my_list.count(-10)
+
+print(var, var1, var2)
+res = my_list.index(7)
+print(res)
+
+var3 = -2
+var4 = -10
+
+
+
+# for i in my_list:
+#     if i == var3:
+#         print(f'{var3} is in the list {my_list}')
+#     elif i == var4:
+#         print(f'{var4} is in the list {my_list}')
+#     else:
+#         if var3 not in my_list
+#         print(f'{var3} is not in the list {my_list}')
+#         if var4 not in my_list
+#         print(f'{var4} is not in the list {my_list}')
+
+my_list.sort()
+print(my_list)
+my_list.reverse()
+print(my_list)
+
+# print(my_list([3][9]))
+# print(my_list)
 
 
 

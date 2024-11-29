@@ -1,4 +1,6 @@
 import csv, sqlite3
+import warnings
+import os
 
 import inline
 import matplotlib
@@ -83,13 +85,17 @@ for i in output_py:
     print(i)
 
 import pandas as pd
+import matplotlib
+import seaborn
 
-# dataframe = test_score_distribution.DataFrame()
-# %matplotlib inline
+### dataframe = test_score_distribution.DataFrame
+
 # import seaborn
 #
 # plot = seaborn.barplot(x='Test_Score',y='Frequency', data=dataframe)
 
+
+plot=seaborn.barplot(x='Test_Score',y='Frequency', data=dataframe)
 
 
 

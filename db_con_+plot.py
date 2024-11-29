@@ -3,7 +3,7 @@ import sqlalchemy
 
 from sqlalchemy import create_engine
 #
-# 
+#
 # conn_str = 'ibm_db_sa://_:_@_:_/BLUDB'
 # engine = create_engine(conn_str)
 # with engine.connect() as connection:
